@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TYT-AYT Matematik Çalışma Programı
 
-## Getting Started
+Next.js + MongoDB + NextAuth.js ile kullanıcı girişli 10 haftalık çalışma programı.
 
-First, run the development server:
+## Özellikler
 
+- ✅ Kullanıcı kayıt ve giriş sistemi
+- ✅ MongoDB'de ilerleme kaydı
+- ✅ 10 haftalık detaylı çalışma planı
+- ✅ TYT ve AYT öncelik haritaları
+- ✅ Çıkma ihtimalleri ve zorluk seviyeleri
+- ✅ Mobil uyumlu tasarım
+
+## Kurulum
+
+### 1. Bağımlılıkları yükle
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Environment değişkenlerini ayarla
+`.env.local` dosyasını düzenle:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```env
+# MongoDB - Local veya Atlas
+MONGODB_URI=mongodb://localhost:27017/tyt-ayt-study
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# NextAuth Secret - Üret: openssl rand -base64 32
+NEXTAUTH_SECRET=your-super-secret-key
 
-## Learn More
+# NextAuth URL
+NEXTAUTH_URL=http://localhost:3000
+```
 
-To learn more about Next.js, take a look at the following resources:
+### 3. MongoDB'yi başlat
+Local MongoDB için:
+```bash
+mongod
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Veya MongoDB Atlas kullan (ücretsiz):
+1. https://cloud.mongodb.com adresinden hesap oluştur
+2. Cluster oluştur
+3. Connection string'i `.env.local`'a yapıştır
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 4. Uygulamayı çalıştır
+```bash
+npm run dev
+```
 
-## Deploy on Vercel
+http://localhost:3000 adresinde açılacak.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deploy
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Vercel (Önerilen)
+1. GitHub'a push et
+2. Vercel'de import et
+3. Environment variables ekle:
+   - `MONGODB_URI` (MongoDB Atlas connection string)
+   - `NEXTAUTH_SECRET`
+   - `NEXTAUTH_URL` (deploy URL'in)
+
+### Diğer Platformlar
+```bash
+npm run build
+npm start
+```
+
+## Teknolojiler
+
+- Next.js 16
+- TypeScript
+- Tailwind CSS
+- MongoDB + Mongoose
+- NextAuth.js
+- Lucide React Icons
