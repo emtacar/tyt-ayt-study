@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useSession, signOut } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import { Calendar, CheckCircle2, Circle, Star, TrendingUp, Clock, Target, Flame, BarChart3, BookOpen, AlertTriangle, LogOut, User, Save } from 'lucide-react';
+import { Calendar, CheckCircle2, Circle, Star, TrendingUp, Clock, Target, Flame, BarChart3, BookOpen, AlertTriangle, LogOut, User, Save, Award } from 'lucide-react';
 import { weeks, tytTopics, aytTopics, priorityColors, priorityLabels } from '@/lib/studyData';
 
 export default function StudyPlan() {
@@ -317,6 +317,79 @@ export default function StudyPlan() {
               </div>
             )
           ))}
+        </div>
+
+        {/* Çalışma İpuçları */}
+        <div className="grid md:grid-cols-2 gap-6">
+          <div className="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-xl shadow-lg p-6 border-2 border-yellow-300">
+            <h3 className="text-xl font-bold text-orange-700 mb-4 flex items-center gap-2">
+              <Award className="w-6 h-6" />
+              Başarı İçin İpuçları
+            </h3>
+            <ul className="space-y-3 text-gray-700">
+              <li className="flex items-start gap-3">
+                <span className="text-orange-600 font-bold text-xl">1</span>
+                <span><strong>Düzenli ol:</strong> Her gün aynı saatte çalış (günde 2-3 saat ideal)</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-orange-600 font-bold text-xl">2</span>
+                <span><strong>Anlamadan geçme:</strong> Her konuyu tam öğrenene kadar ileriye geçme</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-orange-600 font-bold text-xl">3</span>
+                <span><strong>Bol soru çöz:</strong> Sadece konu çalışmak yetmez, mutlaka soru çöz</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-orange-600 font-bold text-xl">4</span>
+                <span><strong>Yanlışları not et:</strong> Yaptığın hataları not alıp tekrar et</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-orange-600 font-bold text-xl">5</span>
+                <span><strong>Formül kartları:</strong> Tüm formülleri kartlara yaz, sık sık tekrar et</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-orange-600 font-bold text-xl">6</span>
+                <span><strong>Dinlenme günleri:</strong> Pazarları hafif çalış, beynine dinlenme ver</span>
+              </li>
+            </ul>
+          </div>
+
+          <div className="bg-gradient-to-br from-green-50 to-blue-50 rounded-xl shadow-lg p-6 border-2 border-green-300">
+            <h3 className="text-xl font-bold text-green-700 mb-4 flex items-center gap-2">
+              <Target className="w-6 h-6" />
+              Önemli Hatırlatmalar
+            </h3>
+            <ul className="space-y-3 text-gray-700">
+              <li className="flex items-start gap-3">
+                <span className="text-green-600 font-bold">✓</span>
+                <span>Konuları sırayla takip et, atlama yapma</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-green-600 font-bold">✓</span>
+                <span>Her hafta sonu mutlaka o haftanın testini çöz</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-green-600 font-bold">✓</span>
+                <span>Geometri için mutlaka şekil çiz, görselle öğren</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-green-600 font-bold">✓</span>
+                <span>Problemlerde tablo kullan, sistematik çöz</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-green-600 font-bold">✓</span>
+                <span>10. haftadaki denemeleri gerçek sınav gibi çöz</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-green-600 font-bold">✓</span>
+                <span>Anlamadığın konularda öğretmenine veya arkadaşına sor</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-green-600 font-bold">✓</span>
+                <span>Video kaynaklardan faydalanabilirsin (Khan Academy, YouTube)</span>
+              </li>
+            </ul>
+          </div>
         </div>
 
         {/* Özet */}
